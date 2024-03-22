@@ -1,20 +1,20 @@
 import css from "./MovieCast.module.css";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { getCast } from "../../fetchApiFilm";
 
 export default function MovieCast() {
-  const [movies, setMovies] = useState([]);
+  const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
+  const { movieId } = useParams();
   useEffect(() => {
     async function getDataMovies() {
       try {
         setError(false);
         setLoading(true);
         const data = await getCast(movieId);
-        setMovies(data);
+        setCast(data.cast.slice(0, 10));
       } catch (error) {
         setError(true);
       } finally {
@@ -26,7 +26,7 @@ export default function MovieCast() {
   return (
     <div className={css.container}>
       {loading && <h4>Loading...</h4>}
-      {movies.map((actor) => (
+      {cast.map((actor) => (
         <div key={actor.id} className={css.actor}>
           <img
             src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}

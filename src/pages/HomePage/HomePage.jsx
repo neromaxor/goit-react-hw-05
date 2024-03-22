@@ -26,8 +26,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
-      <h2>Trending Today</h2>
+    <div className={css.container}>
+      <h2 className={css.title}>Trending Today</h2>
       {loading && <h4 className={css.loading}>Loading...</h4>}
       <MovieList movies={topMovies} />
       {error && <h4 className={css.error}>Error, please reloading page</h4>}

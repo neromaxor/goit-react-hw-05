@@ -1,0 +1,70 @@
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.containeForTop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backLink {
+  display: block;
+  margin-bottom: 20px;
+  color: blue;
+}
+
+.poster {
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.overview {
+  margin-bottom: 20px;
+}
+
+.genres {
+  font-style: italic;
+}
+
+.navLinks {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navLink {
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
+}
+
+.navLink:hover {
+  color: navy;
+}
+
+.loading,
+.error {
+  color: red;
+}

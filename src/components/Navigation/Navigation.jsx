@@ -8,11 +8,11 @@ export default function Navigation() {
   };
   return (
     <div>
-      <nav>
+      <nav className={css.nav}>
         <NavLink to="/" className={buildNavLinkClass}>
           HomePage
         </NavLink>
-        <NavLink to="movies" className={buildNavLinkClass}>
+        <NavLink to="/movies" className={buildNavLinkClass}>
           MoviesPage
         </NavLink>
       </nav>

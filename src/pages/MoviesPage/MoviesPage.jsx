@@ -43,7 +43,7 @@ export default function MoviesPage() {
   };
 
   return (
-    <div>
+    <div className={css.container}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

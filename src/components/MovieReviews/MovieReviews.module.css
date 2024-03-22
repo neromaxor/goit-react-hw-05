@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.author {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 10px;
+}
+
+.dateTime {
+  color: #120707;
+  font-size: 0.8rem;
+}
+
+.notFound {
+  color: #999;
+}
+
+.error {
+  color: rgb(217, 0, 255);
+}

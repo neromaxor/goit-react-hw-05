@@ -1,0 +1,18 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 10px;
+}
+
+.movie-link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.movie-link:hover {
+  color: #666;
+}

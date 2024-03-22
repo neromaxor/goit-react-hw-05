@@ -1,0 +1,12 @@
+.container {
+  margin: 20px;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
