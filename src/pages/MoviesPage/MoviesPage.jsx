@@ -12,31 +12,6 @@ export default function MoviesPage() {
   const [errorNotFound, setErrorNotFound] = useState(false);
   const query = params.get("query") ?? "";
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const inputValue = form.elements.search.value.toLocaleLowerCase().trim();
-    form.reset();
-    if (inputValue === "") {
-      return alert("Please enter your query");
-    }
-
-    try {
-      setErrorNotFound(false);
-      setError(false);
-      setLoading(true);
-      const data = await searchByQuery(inputValue);
-      setMovies(data.results);
-      if (data.results.length === 0) {
-        setErrorNotFound(true);
-      }
-    } catch (error) {
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const changeQuery = (newQuery) => {
     params.set("query", newQuery);
     setParams(params);
@@ -49,6 +24,11 @@ export default function MoviesPage() {
         setLoading(true);
         const data = await searchByQuery(query);
         setMovies(data.results);
+        if (data.results.length === 0) {
+          setErrorNotFound(true);
+        } else {
+          setErrorNotFound(false);
+        }
       } catch (error) {
         setError(true);
       } finally {
@@ -56,12 +36,12 @@ export default function MoviesPage() {
       }
     }
     getMovies();
-  }, []);
+  }, [query]);
 
   return (
     <div className={css.container}>
       {loading && <h4 className={css.loading}>Loading...</h4>}
-      <form onSubmit={handleSearch}>
+      <form>
         <input
           type="text"
           name="search"
@@ -69,9 +49,6 @@ export default function MoviesPage() {
           onChange={(e) => changeQuery(e.target.value)}
           className={css.searchInput}
         />
-        <button type="submit" className={css.searchButton}>
-          Search
-        </button>
       </form>
       {errorNotFound && (
         <h4 className={css.notFound}>Sorry, results not found</h4>

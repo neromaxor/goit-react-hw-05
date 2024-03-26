@@ -22,7 +22,7 @@ export default function HomePage() {
       }
     };
 
-    fetchData(); // Викликаємо функцію fetchData() після її оголошення
+    fetchData();
   }, []);
 
   return (
