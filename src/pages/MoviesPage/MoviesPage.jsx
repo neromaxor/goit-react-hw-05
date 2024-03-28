@@ -5,7 +5,7 @@ import { searchByQuery } from "../../fetchApiFilm";
 import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -13,8 +13,8 @@ export default function MoviesPage() {
   const [searchValue, setSearchValue] = useState(params.get("query") || "");
 
   useEffect(() => {
-    setSearchValue(params.get("query") || "");
-  }, [params]);
+    setParams({ query: searchValue });
+  }, [searchValue, setParams]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
